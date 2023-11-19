@@ -11,3 +11,10 @@ spec:
   source:
     path: kubernetes/budget/app_of_apps
     repoURL: https://github.com/kofl91/demo.git
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true 
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true
