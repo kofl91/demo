@@ -17,9 +17,9 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager
   syncPolicy:
-    automated: 
-      prune: true
-      selfHeal: true 
+    # automated: 
+    #   prune: true
+    #   selfHeal: true 
     syncOptions:
     - CreateNamespace=true
     - PruneLast=true
@@ -27,4 +27,7 @@ spec:
   - group: "admissionregistration.k8s.io"
     kind: "ValidatingWebhookConfiguration"
     jsonPointers:
-    - /webhooks/
+    - /webhooks/0/namespaceSelector/matchExpressions/3
+    - /webhooks/0/namespaceSelector/matchExpressions/2
+    - /webhooks/0/namespaceSelector/matchExpressions/1
+    - /webhooks/0/namespaceSelector/matchExpressions/0
