@@ -11,6 +11,17 @@ spec:
     targetRevision: 5.36.3 
     helm:
       releaseName: loki
+      values:
+        backend:
+          replicas: 0
+        gateway:
+          replicas: 0
+        read:
+          replicas: 0
+        singleBinary:
+          replicas: 0
+        write:
+          replicas: 0
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
