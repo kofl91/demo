@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-rabbitmq-exporter
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: prometheus-rabbitmq-exporter
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 1.9.0 
+    helm:
+      releaseName: prometheus-rabbitmq-exporter
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: monitoring
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true 
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true
