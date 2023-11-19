@@ -26,5 +26,5 @@ spec:
   ignoreDifferences:
   - group: "admissionregistration.k8s.io"
     kind: "ValidatingWebhookConfiguration"
-    managedFieldsManagers:
+    jsonPointers:
     - /webhooks/
